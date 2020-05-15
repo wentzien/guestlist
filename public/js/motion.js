@@ -4,6 +4,9 @@ var score = document.getElementsByClassName('progressMotion');
 
 var motionSensitivity = localStorage.getItem("motionSensitivity") || 20;
 
+for (var i = 0; i < score.length; ++i) {
+    score[i].setAttribute("aria-valuemax", motionSensitivity);
+}
 
 function initSuccess() {
     DiffCamEngine.start();
@@ -15,8 +18,10 @@ function initError() {
 
 function capture(payload) {
     diff = payload.score - motionSensitivity;
-    score.setAttribute("aria-valuemax", motionSensitivity)
-    score.setAttribute("style", "width: " + diff + "%");
+    
+    for (var i = 0; i < score.length; ++i) {
+        score[i].setAttribute("style", "width: " + diff + "%");
+    }
 
     if(payload.score > motionSensitivity){
         DiffCamEngine.stop();

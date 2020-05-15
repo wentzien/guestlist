@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="/revealjs/css/theme/white.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" style="z-index: 2">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'Laravel') }}
@@ -42,7 +42,7 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
-                @if(Route::current()->getName() == 'detection' || Route::current()->getName() == 'welcome')
+                @if(Route::current()->getName() == 'welcome' || Route::current()->getName() == 'recording')
                     <li class="nav-item">
                         <a class="nav-link" href="/" style="margin: 0; padding: 0">
                             <button id="stop" type="button" class="btn btn-danger">Stop</button>
