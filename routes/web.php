@@ -13,10 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Startseite:
 Route::get('/', function () {
+    return view('home');
+});
+//Einstellungen + pers. Texte
+Route::get('/settings', function () {
+    return view('setting');
+});
+//Motionerkennung
+Route::get('/detection', function () {
+    return view('detection');
+});
+//Slideshow mit Audio-Texten und Aufzeichnung der pers. Daten
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
