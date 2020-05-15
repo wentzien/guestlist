@@ -1,6 +1,7 @@
 var video = document.getElementById('video');
 var canvas = document.getElementById('motion');
 var score = document.getElementsByClassName('progressMotion');
+var diff = 0;
 
 var motionSensitivity = localStorage.getItem("motionSensitivity") || 20;
 
@@ -18,7 +19,7 @@ function initError() {
 
 function capture(payload) {
     diff = payload.score - motionSensitivity;
-    
+
     for (var i = 0; i < score.length; ++i) {
         score[i].setAttribute("style", "width: " + diff + "%");
     }
