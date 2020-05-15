@@ -20,15 +20,15 @@ Route::get('/', function () {
 //Einstellungen + pers. Texte
 Route::get('/settings', function () {
     return view('setting');
-});
+})->name('settings');
 //Motionerkennung
-Route::get('/detection', function () {
-    return view('detection');
-});
-//Slideshow mit Audio-Texten und Aufzeichnung der pers. Daten
 Route::get('/welcome', function () {
     return view('welcome');
-});
+})->name('welcome');
+//Slideshow mit Audio-Texten und Aufzeichnung der pers. Daten
+Route::get('/recording', function () {
+    return view('recording');
+})->name('recording');
 
 Auth::routes();
 
