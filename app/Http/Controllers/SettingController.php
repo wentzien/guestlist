@@ -15,9 +15,13 @@ class SettingController extends Controller
 
     public function update()
     {
-        $user = auth()->user()->getAttribute("id");
+        $user = User::find(auth()->id());
 
+        $user->gastro_name = \request('gastro_name');
+        $user->welcome_heading = \request('welcome_heading');
+        $user->welcome_text= \request('welcome_text');
+        $user->save();
 
-        dump(\request()->all());
+        return redirect('settings');
     }
 }

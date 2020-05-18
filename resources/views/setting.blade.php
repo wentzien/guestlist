@@ -51,6 +51,7 @@
 
             <form action="/settings/update" method="post">
                 @csrf
+                @method('put')
                 <div class="form-group">
                     <label for="gastro-name">Gastronomie-Name</label>
                     <input id="gastro-name" name="gastro_name" class="form-control" type="text" value="{{ $setting->gastro_name }}">
