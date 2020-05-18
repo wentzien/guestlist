@@ -12,11 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 //Startseite:
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
+
 //Einstellungen + pers. Texte
 Route::get('/settings', function () {
     return view('setting');
