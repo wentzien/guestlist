@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 //Einstellungen + pers. Texte
 Route::get('/settings', 'SettingController@edit')->name('settings');
-Route::post('/settings/update', 'SettingController@store');
+Route::post('/settings/update', 'SettingController@convention');
 
 //Motionerkennung
 Route::get('/welcome', function () {

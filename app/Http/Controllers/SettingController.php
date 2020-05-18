@@ -13,7 +13,7 @@ class SettingController extends Controller
         return view('setting', ['setting' => $setting]);
     }
 
-    public function store()
+    public function update()
     {
         $user = auth()->user()->getAttribute("id");
 

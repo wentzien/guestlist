@@ -86,7 +86,7 @@
                     </div>
                 </li>
                 <li class="list-group-item">
-                    <h2>Motion-Empfindlichkeit (hoch <-> niedrig)</h3>
+                    <h2>Motion-Empfindlichkeit (hoch <-> niedrig)</h2>
                         <input id="motionSensitivity" type="range" class="form-control-range" id="formControlRange"
                                min="0"
                                max="200" step="10" onchange="save()">
