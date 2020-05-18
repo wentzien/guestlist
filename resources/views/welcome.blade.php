@@ -91,7 +91,7 @@
             hash: false,
             loop: true,
             controls: false,
-            autoSlide: 5000,
+            autoSlide: 4000,
             autoSlideStoppable: false,
 
         });

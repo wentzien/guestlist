@@ -28,11 +28,9 @@
 
     <div class="fixed-top reveal">
         <div class="slides">
-            <section data-audio-text="Liebe Gäste, auf Grund der aktuellen Corona-Auflagen sind wir verpflichtet ihre Kontaktdaten zu erfassen. Bitte sprechen sie gleich, wenn der rote Punkt erscheint ihren Namen und wie sie zu erreichen sind. Vielen Dank.">
-                <h2>Liebe Gäste,</h2>
-                <p>auf Grund der aktuellen Corona-Auflagen sind wir verpflichtet Ihre Kontaktdaten zu erfassen.</p>
-                <p>Bitte sprechen Sie gleich, wenn der rote Punkt erscheint Ihren Namen und wie Sie zu erreichen sind.</p>
-                <p>Vielen Dank!</p>
+            <section data-audio-text="{{ $text_to_speech }}">
+                <h2>{{ $welcome_heading }}</h2>
+                <p>{{ $welcome_text }}</p>
             </section>
             <section data-state="record">
                 <div id="recording" class="spinner-grow text-danger" role="status" style="width: 150px; height: 150px; margin-top: 60px">
