@@ -18,9 +18,9 @@ Route::get('/', function () {
 })->name('home');
 
 //Einstellungen + pers. Texte
-Route::get('/settings', function () {
-    return view('setting');
-})->name('settings');
+Route::get('/settings', 'SettingController@edit')->name('settings');
+Route::post('/settings/update', 'SettingController@store');
+
 //Motionerkennung
 Route::get('/welcome', function () {
     return view('welcome');

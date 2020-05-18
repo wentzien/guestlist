@@ -2,29 +2,29 @@
 
 @section('content')
     <style>
-        #einstellungen {
+        .einstellungen {
             max-width: 1100px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        #einstellungen h1 {
+        .einstellungen h1 {
             font-size: 16px;
             padding: 0;
             margin: 0;
         }
 
-        #einstellungen h2 {
+        .einstellungen h2 {
             font-size: 14px;
         }
 
-        #einstellungen li.list-group-item {
-            padding-top: 40px;
+        .einstellungen li.list-group-item {
+            padding-top: 20px;
             padding-bottom: 40px;
         }
 
-        #einstellungen div.card-body {
-            padding-top: 0;
+        .einstellungen div.card-body {
+            padding-top: 20px;
             padding-bottom: 0;
         }
         video, canvas {
@@ -37,8 +37,38 @@
         canvas {
             image-rendering: pixelated;
         }
+
+        .card{
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
     </style>
-    <div id="einstellungen" class="card">
+    <div id="einstellungen1" class="card einstellungen">
+        <div class="card-header">
+            <h1>Personalisierter Text</h1>
+        </div>
+        <div class="card-body">
+
+            <form action="/settings/update" method="post">
+                @csrf
+                <div class="form-group">
+                    <label for="gastro-name">Gastronomie-Name</label>
+                    <input id="gastro-name" name="gastro_name" class="form-control" type="text" value="{{ $setting->gastro_name }}">
+                </div>
+                <div class="form-group">
+                    <label for="pers-heading">Überschrift</label>
+                    <input id="pers-heading" name="welcome_heading" class="form-control" type="text" value="{{ $setting->welcome_heading }}">
+                </div>
+                <div class="form-group">
+                    <label for="pers-text">Text</label>
+                    <textarea class="form-control" name="welcome_text" id="pers-text" rows="3">{{ $setting->welcome_text }}</textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Speichern</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="einstellungen2" class="card einstellungen">
         <div class="card-header">
             <h1>Empfindlichkeits-Einstellungen</h1>
         </div>
