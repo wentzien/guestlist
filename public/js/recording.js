@@ -31,7 +31,7 @@ var recording = document.getElementById("recording");
 var progress = document.getElementById("progress");
 
 //sobald das Fenster geladen wurde:
-window.onload = function start() {
+function start() {
     //damit Mikro wirklich aktiviert wird...
     //wird eig. nicht mehr benötigt, aktuell doppelt vorhanden
     navigator.mediaDevices.getUserMedia({audio: true}).then(startRecording);
