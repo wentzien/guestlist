@@ -43,6 +43,8 @@
             margin-bottom: 20px;
         }
     </style>
+
+    @auth
     <div id="einstellungen1" class="card einstellungen">
         <div class="card-header">
             <h1>Personalisierter Text</h1>
@@ -68,6 +70,7 @@
             </form>
         </div>
     </div>
+    @endauth
 
     <div id="einstellungen2" class="card einstellungen">
         <div class="card-header">
