@@ -1,6 +1,6 @@
 var video = document.getElementById('video');
 var canvas = document.getElementById('motion');
-var score = document.getElementsByClassName('progressMotion');
+var score = document.getElementsByClassName('progress-bar');
 var diff = 0;
 
 var motionSensitivity = localStorage.getItem("motionSensitivity") || 20;
