@@ -15,6 +15,10 @@ class SettingController extends Controller
 
     public function update()
     {
+        \request()->validate([
+            'gastro_name' => ['required', 'unique:users'],
+        ]);
+
         $user = User::find(auth()->id());
 
         $user->gastro_name = \request('gastro_name');

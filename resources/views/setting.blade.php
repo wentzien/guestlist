@@ -27,6 +27,7 @@
             padding-top: 20px;
             padding-bottom: 0;
         }
+
         video, canvas {
             margin-top: 20px;
             width: 480px;
@@ -38,38 +39,61 @@
             image-rendering: pixelated;
         }
 
-        .card{
+        .card {
             margin-top: 20px;
             margin-bottom: 20px;
         }
     </style>
 
     @auth
-    <div id="einstellungen1" class="card einstellungen">
-        <div class="card-header">
-            <h1>Personalisierter Text</h1>
-        </div>
-        <div class="card-body">
+        <div id="einstellungen1" class="card einstellungen">
+            <div class="card-header">
+                <h1>Personalisierter Text</h1>
+            </div>
+            <div class="card-body">
 
-            <form action="/settings/update" method="post">
-                @csrf
-                @method('put')
-                <div class="form-group">
-                    <label for="gastro-name">Gastronomie-Name</label>
-                    <input id="gastro-name" name="gastro_name" class="form-control" type="text" value="{{ $setting->gastro_name }}">
-                </div>
-                <div class="form-group">
-                    <label for="pers-heading">Überschrift</label>
-                    <input id="pers-heading" name="welcome_heading" class="form-control" type="text" value="{{ $setting->welcome_heading }}">
-                </div>
-                <div class="form-group">
-                    <label for="pers-text">Text</label>
-                    <textarea class="form-control" name="welcome_text" id="pers-text" rows="3">{{ $setting->welcome_text }}</textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Speichern</button>
-            </form>
+                <form action="/settings/update" method="post">
+                    @csrf
+                    @method('put')
+                    <div class="form-group">
+                        <label for="gastro-name">Gastronomie-Name</label>
+                        <input id="gastro-name" name="gastro_name" class="form-control @error('gastro_name') is-invalid @enderror" type="text"
+                               value="{{ $setting->gastro_name }}" required>
+
+                        @error('gastro_name')
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="pers-heading">Überschrift</label>
+                        <input id="pers-heading" name="welcome_heading" class="form-control @error('welcome_heading') is-invalid @enderror" type="text"
+                               value="{{ $setting->welcome_heading }}">
+
+                        @error('welcome_heading')
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="pers-text">Text</label>
+                        <textarea class="form-control @error('welcome_text') is-invalid @enderror" name="welcome_text" id="pers-text"
+                                  rows="3">{{ $setting->welcome_text }}</textarea>
+
+                        @error('welcome_text')
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <button type="submit" class="btn btn-primary">Speichern</button>
+                </form>
+            </div>
         </div>
-    </div>
     @endauth
 
     <div id="einstellungen2" class="card einstellungen">
@@ -91,34 +115,34 @@
                 </li>
                 <li class="list-group-item">
                     <h2>Motion-Empfindlichkeit (hoch <-> niedrig)</h2>
-                        <input id="motionSensitivity" type="range" class="form-control-range" id="formControlRange"
-                               min="0"
-                               max="200" step="10" onchange="save()">
+                    <input id="motionSensitivity" type="range" class="form-control-range" id="formControlRange"
+                           min="0"
+                           max="200" step="10" onchange="save()">
 
-                        <div class="progress">
-                            <div id="progressMotion" class="progress-bar" role="progressbar" style="width: 100%"
-                                 aria-valuemin="0"
-                                 aria-valuemax="100"></div>
-                        </div>
+                    <div class="progress">
+                        <div id="progressMotion" class="progress-bar" role="progressbar" style="width: 100%"
+                             aria-valuemin="0"
+                             aria-valuemax="100"></div>
+                    </div>
 
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm">
-                                    <figure>
-                                        <video id="video"></video>
-                                        <figcaption>Live Video</figcaption>
-                                    </figure>
-                                </div>
-                                <div class="col-sm">
-                                    <figure>
-                                        <canvas id="motion"></canvas>
-                                        <figcaption>
-                                            Motion Heatmap<br>
-                                        </figcaption>
-                                    </figure>
-                                </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                <figure>
+                                    <video id="video"></video>
+                                    <figcaption>Live Video</figcaption>
+                                </figure>
+                            </div>
+                            <div class="col-sm">
+                                <figure>
+                                    <canvas id="motion"></canvas>
+                                    <figcaption>
+                                        Motion Heatmap<br>
+                                    </figcaption>
+                                </figure>
                             </div>
                         </div>
+                    </div>
                 </li>
             </ul>
         </div>
