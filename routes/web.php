@@ -26,7 +26,7 @@ Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
 //Slideshow mit Audio-Texten und Aufzeichnung der pers. Daten
-Route::get('/recording/{gastro_name}', 'RecordingController@show')->name('recording');
+Route::get('/recording/{gastro_name}', 'RecordingController@show');
 Route::get('/recording', 'RecordingController@show')->name('recording');
 
 Auth::routes();

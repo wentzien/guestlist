@@ -16,7 +16,9 @@ class SettingController extends Controller
     public function update()
     {
         \request()->validate([
-            'gastro_name' => ['required', 'unique:users', 'regex:/[a-z\-]/'], //nur Kleinbuchstabenm und Minus erlaubt
+            'gastro_name' => ['required', 'unique:users', 'regex:/[a-z\-]/'], //nur Kleinbuchstaben und Minus erlaubt
+            'welcome_name' => ['max:255'],
+            'welcome_text' => ['max:50'],
         ]);
 
         $user = User::find(auth()->id());
