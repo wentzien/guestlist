@@ -56,7 +56,7 @@
                     @csrf
                     @method('put')
                     <div class="form-group">
-                        <label for="gastro-name">Gastronomie-Name</label>
+                        <label for="gastro-name">Gastronomie-Name (Großbuchstaben, Umlaute und Leerzeichen sind nicht erlaubt. Erlaubt: pizzaria-pforzheim)</label>
                         <input id="gastro-name" name="gastro_name" class="form-control @error('gastro_name') is-invalid @enderror" type="text"
                                value="{{ $setting->gastro_name }}" required>
 
