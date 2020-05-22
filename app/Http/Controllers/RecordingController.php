@@ -35,20 +35,21 @@ class RecordingController extends Controller
         $default_text = "auf Grund der aktuellen Corona-Auflagen sind wir verpflichtet Ihre Kontaktdaten zu erfassen. Bitte sprechen Sie gleich, wenn der rote Punkt erscheint Ihren Namen und wie Sie zu erreichen sind. Vielen Dank!";
         $default_text_to_speech = $default_heading . " " . $default_text;
 
-        if ($welcome_data->welcome_heading != "" && $welcome_data->welcome_text != "") {
-            return view("recording", [
-                'welcome_heading' => $welcome_data->welcome_heading,
-                'welcome_text' => $welcome_data->welcome_text,
-                'text_to_speech' => $welcome_data->welcome_heading . " " . $welcome_data->welcome_text,
-                'link' => '/welcome/'.$link,
-            ]);
-        } else {
-            return view('recording', [
-                'welcome_heading' => $default_heading,
-                'welcome_text' => $default_text,
-                'text_to_speech' => $default_text_to_speech,
-                'link' => '/welcome/'.$link,
-            ]);
+        if ($welcome_data != null) {
+            if ($welcome_data->welcome_heading != "" && $welcome_data->welcome_text != "") {
+                return view("recording", [
+                    'welcome_heading' => $welcome_data->welcome_heading,
+                    'welcome_text' => $welcome_data->welcome_text,
+                    'text_to_speech' => $welcome_data->welcome_heading . " " . $welcome_data->welcome_text,
+                    'link' => '/welcome/' . $link,
+                ]);
+            }
         }
+        return view('recording', [
+            'welcome_heading' => $default_heading,
+            'welcome_text' => $default_text,
+            'text_to_speech' => $default_text_to_speech,
+            'link' => '/welcome/' . $link,
+        ]);
     }
 }
