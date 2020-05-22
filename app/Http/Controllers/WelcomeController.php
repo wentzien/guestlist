@@ -10,28 +10,29 @@ class WelcomeController extends Controller
 {
     public function show($gastro_name = null)
     {
-        if (auth()->check()) {
-            $welcome_data = User::find(auth()->id());
-
-            return view("recording", [
-                'welcome_heading' => $welcome_data->welcome_heading,
-                'welcome_text' => $welcome_data->welcome_text,
-                'text_to_speech' => $welcome_data->welcome_heading." ".$welcome_data->welcome_text
-            ]);
-        } elseif ($gastro_name != null) {
+        if ($gastro_name != null) {
             $welcome_data = DB::table('users')->where('gastro_name', $gastro_name)->first();
-            if($welcome_data){
-                return view("recording", [
-                    'welcome_heading' => $welcome_data->welcome_heading,
-                    'welcome_text' => $welcome_data->welcome_text,
-                    'text_to_speech' => $welcome_data->welcome_heading." ".$welcome_data->welcome_text
-                ]);
-            }else{
-                return $this->show(null);
-            }
+
+            $link = $this->checkData($welcome_data, $gastro_name);
+
+            return view("welcome", [
+                'link' => $link
+            ]);
         } else {
-            //ansonsten Standartwerte
-            return view("recording");
+            return view("welcome", [
+                'link' => '/recording'
+            ]);
         }
     }
+
+    function checkData($welcome_data, $gastro_name = null)
+    {
+        if ($welcome_data->welcome_heading != "" && $welcome_data->welcome_text != "") {
+            return "/recording/" . $gastro_name;
+        } else {
+            return "/recording";
+        }
+    }
+
+
 }

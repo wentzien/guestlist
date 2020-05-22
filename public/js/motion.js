@@ -26,7 +26,7 @@ function capture(payload) {
 
     if(payload.score > motionSensitivity){
         DiffCamEngine.stop();
-        window.location.href = "/recording";
+        window.location.href = link;
     }
 }
 
