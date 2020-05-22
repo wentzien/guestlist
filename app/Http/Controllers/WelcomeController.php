@@ -13,10 +13,10 @@ class WelcomeController extends Controller
         if ($gastro_name != null) {
             $welcome_data = DB::table('users')->where('gastro_name', $gastro_name)->first();
 
-            $link = $this->checkData($welcome_data, $gastro_name);
+//            $link = $this->checkData($welcome_data, $gastro_name);
 
             return view("welcome", [
-                'link' => $link
+                'link' => '/recording/'.$gastro_name
             ]);
         } else {
             return view("welcome", [
@@ -25,14 +25,14 @@ class WelcomeController extends Controller
         }
     }
 
-    function checkData($welcome_data, $gastro_name = null)
-    {
-        if ($welcome_data->welcome_heading != "" && $welcome_data->welcome_text != "") {
-            return "/recording/" . $gastro_name;
-        } else {
-            return "/recording";
-        }
-    }
+//    function checkData($welcome_data, $gastro_name = null)
+//    {
+//        if ($welcome_data->welcome_heading != "" && $welcome_data->welcome_text != "") {
+//            return "/recording/" . $gastro_name;
+//        } else {
+//            return "/recording";
+//        }
+//    }
 
 
 }
