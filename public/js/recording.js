@@ -95,7 +95,7 @@ function startRecording() {
                     //Wert stellt ein, wie lange Stille herrschen muss -> 10 -> 2Sek
                     if (silentTime == timeToStop) {
                         stopRecording();
-                        setTimeout(window.location.href = "/welcome", 1000);
+                        setTimeout(window.location.href = link, 1000);
                     }
                 } else {
                     silentTime = 0;

@@ -47,6 +47,9 @@
         </div>
     </div>
 
+    <script>
+        var link = "{{ $link }}";
+    </script>
     <script src="/revealjs/js/reveal.js"></script>
     <script type="text/javascript" src="/js/plugins/adapter.js"></script>
     <script type="text/javascript" src="/js/plugins/recorder.js"></script>
