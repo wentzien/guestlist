@@ -25,7 +25,7 @@ Route::put('/settings/update', 'SettingController@update');
 Route::get('/welcome/{gastro_name}', 'WelcomeController@show')->name('welcome');
 Route::get('/welcome', 'WelcomeController@show')->name('welcome');
 //Slideshow mit Audio-Texten und Aufzeichnung der pers. Daten
-Route::get('/recording/{gastro_name}', 'RecordingController@show');
+Route::get('/recording/{gastro_name}', 'RecordingController@show')->name('recording');
 Route::get('/recording', 'RecordingController@show')->name('recording');
 
 Auth::routes();
