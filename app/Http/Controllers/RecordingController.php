@@ -29,7 +29,7 @@ class RecordingController extends Controller
         }
     }
 
-    function checkData($welcome_data, $link = null)
+    function checkData($welcome_data = null, $link = null)
     {
         $default_heading = "Liebe Gäste,";
         $default_text = "auf Grund der aktuellen Corona-Auflagen sind wir verpflichtet Ihre Kontaktdaten zu erfassen. Bitte sprechen Sie gleich, wenn der rote Punkt erscheint Ihren Namen und wie Sie zu erreichen sind. Vielen Dank!";
