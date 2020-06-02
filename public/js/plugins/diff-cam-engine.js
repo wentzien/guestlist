@@ -78,7 +78,7 @@ var DiffCamEngine = (function() {
 
 	function requestWebcam() {
 		var constraints = {
-			audio: false,
+			audio: true, // damit User nur einmal Erlaubnis für Media geben muss und Entscheidung vermerken kann
 			video: { width: captureWidth, height: captureHeight }
 		};
 
