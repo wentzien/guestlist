@@ -13,8 +13,8 @@ function initSuccess() {
     DiffCamEngine.start();
 }
 
-function initError() {
-    alert('Something went wrong.');
+function initError(err) {
+    alert(err.message);
 }
 
 function capture(payload) {
