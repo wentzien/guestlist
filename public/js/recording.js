@@ -30,12 +30,14 @@ var recording = document.getElementById("recording");
 //Nach der Aufnahme wird die Progress-Bar ausgeblendet
 var progress = document.getElementById("progress");
 
-//sobald das Fenster geladen wurde:
-function start() {
-    //damit Mikro wirklich aktiviert wird...
-    //wird eig. nicht mehr benötigt, aktuell doppelt vorhanden
-    navigator.mediaDevices.getUserMedia({audio: true}).then(startRecording);
-}
+// //sobald das Fenster geladen wurde:
+// function start() {
+//     //damit Mikro wirklich aktiviert wird...
+//     //wird eig. nicht mehr benötigt, aktuell doppelt vorhanden
+//     navigator.mediaDevices.getUserMedia({audio: true}).then(startRecording).catch(function (err) {
+//         alert(err.message);
+//     });
+// }
 
 function startRecording() {
     console.log("Process started")
@@ -107,9 +109,8 @@ function startRecording() {
         //-----------------------------------------------
 
 
-    }).catch(function (error) {
-
-        console.log('navigator.MediaDevices.getUserMedia error: ', error.message, error.name);
+    }).catch(function (err) {
+        alert(err.message);
     });
 }
 

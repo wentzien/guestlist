@@ -95,7 +95,7 @@
 
         Reveal.addEventListener( 'record', function() {
             console.log( 'record called!' );
-            start();
+            startRecording();
         } );
     </script>
 @endsection
