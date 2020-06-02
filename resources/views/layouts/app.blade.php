@@ -17,10 +17,12 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    @if(Route::current()->getName() == 'welcome' || Route::current()->getName() == 'recording')
     <link rel="stylesheet" href="/revealjs/css/reset.css">
     <link rel="stylesheet" href="/revealjs/css/reveal.css">
     <link rel="stylesheet" href="/revealjs/css/theme/white.css">
+    @endif
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" style="z-index: 2">

@@ -43,6 +43,10 @@
             margin-top: 20px;
             margin-bottom: 20px;
         }
+
+        .einstellungen button{
+            margin-bottom: 20px;
+        }
     </style>
 
     @auth
